@@ -9,9 +9,12 @@ import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by ennur on 6/25/16.
+ * MVP Pattern의 Prensenter
  */
 public class HomePresenter {
+    // Custom Network Service
     private final Service service;
+    // Interface
     private final HomeView view;
     private CompositeSubscription subscriptions;
 
@@ -22,6 +25,7 @@ public class HomePresenter {
     }
 
     public void getCityList() {
+        // HomeView의 ShowWait 호출.
         view.showWait();
 
         Subscription subscription = service.getCityList(new Service.GetCityListCallback() {

@@ -7,6 +7,7 @@ import retrofit2.http.GET;
 import rx.Observable;
 
 /**
+ * Retrofit2 Interface
  * Created by ennur on 6/25/16.
  */
 public interface NetworkService {

@@ -10,6 +10,7 @@ import dagger.Component;
 
 /**
  * Created by ennur on 6/28/16.
+ * Activity SingleTon Pattern
  */
 @Singleton
 @Component(modules = {NetworkModule.class,})

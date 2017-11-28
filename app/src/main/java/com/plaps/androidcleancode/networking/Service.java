@@ -12,6 +12,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * Created by ennur on 6/25/16.
+ * Retrofit2 Service
  */
 public class Service {
     private final NetworkService networkService;

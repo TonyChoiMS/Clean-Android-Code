@@ -2,6 +2,9 @@ package com.plaps.androidcleancode.networking;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Retrofit2 Response
+ */
 public class Response {
     @SerializedName("status")
     public String status;

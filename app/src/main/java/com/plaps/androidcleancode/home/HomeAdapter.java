@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.plaps.androidcleancode.R;
 import com.plaps.androidcleancode.models.CityListData;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private final OnItemClickListener listener;
@@ -61,14 +63,16 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvCity, tvDesc;
+        @BindView(R.id.city)
+        TextView tvCity;
+        @BindView(R.id.hotel)
+        TextView tvDesc;
+        @BindView(R.id.image)
         ImageView background;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvCity = itemView.findViewById(R.id.city);
-            tvDesc = itemView.findViewById(R.id.hotel);
-            background = itemView.findViewById(R.id.image);
+            ButterKnife.bind(this, itemView);
 
         }
 
@@ -82,6 +86,4 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             });
         }
     }
-
-
 }

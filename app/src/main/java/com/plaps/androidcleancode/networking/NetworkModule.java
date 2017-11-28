@@ -32,6 +32,8 @@ public class NetworkModule {
     @Provides
     @Singleton
     Retrofit provideCall() {
+        // Cache 파일을 생성
+        // 통신이 성공적으로 되면, 받은 정보를 File로 cache
         Cache cache = null;
         try {
             cache = new Cache(cacheFile, 10 * 1024 * 1024);

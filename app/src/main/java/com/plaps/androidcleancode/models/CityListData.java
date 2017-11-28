@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
 
+/**
+ * City Object
+ */
 @Generated("org.jsonschema2pojo")
 public class CityListData {
 

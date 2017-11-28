@@ -18,11 +18,13 @@ public class BaseApp  extends AppCompatActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Network로 받을 이미지를 Cache 파일로 생성하여 이후 로딩에 있어서 원활하게 될 수 있게함.
         File cacheFile = new File(getCacheDir(), "responses");
         deps = DaggerDeps.builder().networkModule(new NetworkModule(cacheFile)).build();
 
     }
 
+    // SingleTon Pattern
     public Deps getDeps() {
         return deps;
     }

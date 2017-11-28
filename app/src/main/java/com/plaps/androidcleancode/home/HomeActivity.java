@@ -15,12 +15,26 @@ import com.plaps.androidcleancode.networking.Service;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
+/**
+ * Main Activity
+ * MVP Pattern의 View
+ * HomeView Interface를 참조하여, 선언된 필요 기능들을 Override함.
+ */
 public class HomeActivity extends BaseApp implements HomeView {
 
-    private RecyclerView list;
+    @BindView(R.id.list)
+    RecyclerView list;
+    @BindView(R.id.progress)
+    ProgressBar progressBar;
+
     @Inject
     public  Service service;
-    ProgressBar progressBar;
+
+    Unbinder unbinder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,15 +43,16 @@ public class HomeActivity extends BaseApp implements HomeView {
 
         renderView();
         init();
-
+        // Presenter 생성 후, 리스트를 불러옴
+        // MVP 패턴에서 View는 데이터에 대한 처리를 하지 않기 때문에,
+        // Presenter를 통해서 Model에서 데이터를 저장한 후, 불러올 수 있게 동작
         HomePresenter presenter = new HomePresenter(service, this);
         presenter.getCityList();
     }
 
     public  void renderView(){
         setContentView(R.layout.activity_home);
-        list = findViewById(R.id.list);
-        progressBar = findViewById(R.id.progress);
+        unbinder = ButterKnife.bind(this);
     }
 
     public void init(){
@@ -61,7 +76,8 @@ public class HomeActivity extends BaseApp implements HomeView {
 
     @Override
     public void getCityListSuccess(CityListResponse cityListResponse) {
-
+        // Network를 통해 정보를 성공적으로 불러왔을 경우,
+        // 리스트를 불러와서 Adapter에 Data Set.
         HomeAdapter adapter = new HomeAdapter(getApplicationContext(), cityListResponse.getData(),
                 new HomeAdapter.OnItemClickListener() {
                     @Override
@@ -73,5 +89,11 @@ public class HomeActivity extends BaseApp implements HomeView {
 
         list.setAdapter(adapter);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        unbinder.unbind();      // Activity 종료 시, Bind한 View unBind;
+        super.onDestroy();
     }
 }
