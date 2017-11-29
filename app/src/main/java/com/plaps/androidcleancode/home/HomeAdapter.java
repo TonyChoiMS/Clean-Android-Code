@@ -17,11 +17,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * RecyclerView Adapter Class
+ */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private final OnItemClickListener listener;
     private List<CityListData> data;
     private Context context;
 
+    // Constructor
     public HomeAdapter(Context context, List<CityListData> data, OnItemClickListener listener) {
         this.data = data;
         this.listener = listener;
@@ -29,6 +33,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
 
+    /**
+     * Create RecyclerView row item view
+     * @param parent        RecyclerView Parent
+     * @param viewType      RecyclerView Type
+     * @return              RecyclerView Row
+     */
     @Override
     public HomeAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home, null);
@@ -37,6 +47,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
 
+    /**
+     * Set RecyclerView row data
+     * @param holder        ViewHolder Class
+     * @param position      RecyclerView item position
+     */
     @Override
     public void onBindViewHolder(HomeAdapter.ViewHolder holder, int position) {
         holder.click(data.get(position), listener);
@@ -45,6 +60,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         String images = data.get(position).getBackground();
 
+        //Set Image on Glide Library
         Glide.with(context)
                 .load(images)
                 .into(holder.background);
@@ -52,16 +68,25 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
 
+    /**
+     * RecyclerView item count
+     * @return  Total Item Count
+     */
     @Override
     public int getItemCount() {
         return data.size();
     }
 
 
+    /**
+     * RecyclerView ItemClickListener Interface
+     * Used In HomeActivity
+     */
     public interface OnItemClickListener {
         void onClick(CityListData Item);
     }
 
+    // ViewHolder Class
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.city)
         TextView tvCity;

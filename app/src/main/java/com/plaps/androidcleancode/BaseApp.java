@@ -25,6 +25,7 @@ public class BaseApp  extends AppCompatActivity{
     }
 
     // SingleTon Pattern
+    // Return exist instance
     public Deps getDeps() {
         return deps;
     }

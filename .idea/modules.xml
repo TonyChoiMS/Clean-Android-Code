@@ -4,9 +4,7 @@
     <modules>
       <module fileurl="file://C:\Users\Administrator\Documents\GitHub\Clean-Android-Code\AndroidCleanCode.iml" filepath="C:\Users\Administrator\Documents\GitHub\Clean-Android-Code\AndroidCleanCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/Clean-Android-Code.iml" filepath="$PROJECT_DIR$/Clean-Android-Code.iml" />
-      <module fileurl="file://C:\Users\Administrator\Documents\GitHub\Clean-Android-Code\Clean-Android-Code.iml" filepath="C:\Users\Administrator\Documents\GitHub\Clean-Android-Code\Clean-Android-Code.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Administrator\Documents\GitHub\Clean-Android-Code\app\app.iml" filepath="C:\Users\Administrator\Documents\GitHub\Clean-Android-Code\app\app.iml" />
     </modules>
   </component>
 </project>

@@ -28,6 +28,8 @@ public class HomePresenter {
         // HomeView의 ShowWait 호출.
         view.showWait();
 
+        // Service를 통해 목표 URL에 접속하여 데이터를 받아옴
+        // Success와 Error로 분기
         Subscription subscription = service.getCityList(new Service.GetCityListCallback() {
             @Override
             public void onSuccess(CityListResponse cityListResponse) {

@@ -55,25 +55,40 @@ public class HomeActivity extends BaseApp implements HomeView {
         unbinder = ButterKnife.bind(this);
     }
 
+    // RecyclerView set LayoutManager
     public void init(){
         list.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * Showing ProgressDialog
+     */
     @Override
     public void showWait() {
         progressBar.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Remove ProgressDialog
+     */
     @Override
     public void removeWait() {
         progressBar.setVisibility(View.GONE);
     }
 
+    /**
+     *  Receive App Error Message
+     * @param appErrorMessage
+     */
     @Override
     public void onFailure(String appErrorMessage) {
 
     }
 
+    /**
+     * When Network Success, Get Response List Data
+     * @param cityListResponse  response list about city
+     */
     @Override
     public void getCityListSuccess(CityListResponse cityListResponse) {
         // Network를 통해 정보를 성공적으로 불러왔을 경우,
@@ -91,6 +106,9 @@ public class HomeActivity extends BaseApp implements HomeView {
 
     }
 
+    /**
+     * When activity destroy, unbind views
+     */
     @Override
     protected void onDestroy() {
         unbinder.unbind();      // Activity 종료 시, Bind한 View unBind;
