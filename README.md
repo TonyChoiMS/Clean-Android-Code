@@ -83,7 +83,7 @@ https://github.com/taehwandev/AndroidMVPSample
 https://medium.com/@nurrohman/a-simple-android-apps-with-mvp-dagger-rxjava-and-retrofit-4edb214a66d7
 
 
-Dependency란?
+# Dependency란?
 코드에서 두 모듈 간의 연결.
 객체지향언어에서는 두 클래스 간의 관계라고도 말함.
 일반적으로 둘 중 하나가 다른 하나를 어떤 용도를 위해 사용함.
